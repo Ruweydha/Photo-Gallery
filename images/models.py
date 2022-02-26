@@ -6,11 +6,27 @@ from django.db import models
 class Category(models.Model):
     name = models.CharField(max_length=30)
 
+    def save_category(self):
+        self.save()
+    
+    def delete_category(self):
+        Category.objects.filter(id = self.id).delete()
+
+    def update_category(self, updates):
+         Category.objects.filter(id = self.id).update(name = updates)
+ 
+
     def __str__(self):
         return self.name
 
 class  Location(models.Model):
     location = models.CharField(max_length=30)
+
+    def save_location(self):
+        self.save()
+    
+    def delete_location(self):
+        Location.objects.filter(id = self.id).delete()
 
     def __str__(self):
         return self.location
