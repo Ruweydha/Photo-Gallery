@@ -38,3 +38,29 @@ class Images(models.Model):
     location = models.ForeignKey(Location, on_delete = models.CASCADE)
     category = models.ForeignKey(Category, on_delete = models.CASCADE)
     date_posted = models.DateField(auto_now_add = True)
+
+    def save_image(self):
+        self.save()
+
+    def delete_image(self):
+        Images.objects.filter(id = self.id).delete()
+
+    @classmethod
+    def get_image_by_id(cls, id):
+        image = cls.objects.get(id = id)
+        return image      
+    
+    @classmethod
+    def search_image_by_category(cls, category):
+        images = cls.objects.filter(category = category)
+        return images
+        
+    @classmethod
+    def filter_by_location(cls, location):
+        images = cls.objects.filter(location = location)
+        return images  
+
+    @classmethod
+    def update_image(cls, id):
+        update = 'New_image.png'
+        image_update = cls.objects.filter(id = id).update(image = update)
