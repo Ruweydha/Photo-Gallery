@@ -70,7 +70,7 @@ class ImagesTestClass(TestCase):
     def test_get_image_by_id(self) :
          self.new_image.save_image()
          image = Images.get_image_by_id(self.new_image.id)
-         self.assertTrue(image ,self.new_image) 
+         self.assertEqual(image ,self.new_image) 
 
     def test_search_by_category(self):
         self.new_image.save_image()
@@ -82,8 +82,8 @@ class ImagesTestClass(TestCase):
         images = Images.filter_by_location(self.new_image.location)   
         self.assertTrue(len(images)>0) 
 
-    def test_update_image(self):
-        self.new_image.save_image()
-        new_image = 'Ruweydha.png' 
-        self.new_image.update_image(new_image)
-        self.assertEqual(self.new_image.image, new_image)
+    # def test_update_image(self):
+    #     self.new_image.save_image()
+    #     new_image = 'Ruweydha.png' 
+    #     self.new_image.update_image(new_image)
+    #     self.assertEqual(self.new_image.image, new_image)
