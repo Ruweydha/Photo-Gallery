@@ -1,0 +1,62 @@
+{%extends 'base.html'%} 
+{% block content %}
+<div class="container">
+
+  <div class="row">
+    {% if images%}
+      <h2 class="results">Found {{ images|length }} of searched term {{message}}</h2>
+    {% else %}
+      <h2> Found 0 articles for the search term {{message}}</h2>
+    {% endif %}
+
+  </div>
+
+  <div class="row">
+
+  {% if images %}
+    {% for image in images %}
+    <div class="col-md-4">
+      <div class="card mt-3" style="width: 20rem;">
+          <img src="{{image.image.url}}" class="card-img-top card-image" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{image.name}}</h5>
+            <button type="button" class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#modal{{image.id}}">
+              View image
+            </button>  
+                           
+          </div>
+        </div>  
+<!-- Modal -->
+  <div class="modal fade" id="modal{{image.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{image.name}}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+          <div class="container">
+              <div class="row">
+                  <div class="col-md-12">
+                      <img style="height: 400px ; width: 100%;" class="img-fluid" src="{{image.image.url}}" alt="">
+                      <p>Location: {{image.location}}</p>
+                      <p>Category: {{image.category}}</p>
+                      <p>Description: {{image.description}}</p>
+                      <p>Posted on: {{image.date_posted}}</p>
+
+
+                  </div>
+              </div>
+          </div>
+          </div>
+          <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>        </div>
+      </div>
+      </div>
+  </div>
+</div>
+    {% endfor %}
+  {% endif %}
+  </div>
+</div>
+{% endblock %}
