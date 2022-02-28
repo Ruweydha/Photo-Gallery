@@ -1,3 +1,24 @@
-h1{
-    color: blue
+@import url("https://fonts.googleapis.com/css?family=Poppins");
+body{
+    font-family: "Poppins";
+    box-sizing: border-box;
 }
+.first{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/static/images/background.jpeg");
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    margin: 0%;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    align-items: center;
+}
+.card{
+    border-radius: 2rem;
+}
+.card-image{
+   height: 300px;
+   border-radius: 2rem; 
+}
+
