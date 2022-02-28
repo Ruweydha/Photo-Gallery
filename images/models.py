@@ -1,5 +1,3 @@
-from distutils.command.upload import upload
-from pydoc import describe
 from django.db import models
 
 # Create your models here.
@@ -52,12 +50,13 @@ class Images(models.Model):
     
     @classmethod
     def search_image_by_category(cls, category):
-        images = cls.objects.filter(category = category)
+        print(category)
+        images = cls.objects.filter(category = Category.objects.filter(name__contains = category).first()).all()
         return images
         
     @classmethod
     def filter_by_location(cls, location):
-        images = cls.objects.filter(location = location)
+        images = cls.objects.filter(location = Location.objects.filter(location__contains = location).first()).all()
         return images  
 
     @classmethod
