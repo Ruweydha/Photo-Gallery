@@ -28,7 +28,7 @@
              let myCode = document.getElementsByClassName(`Input`);
              let fullLink = document.createElement('input');
              document.body.appendChild(fullLink);
-             fullLink.value = "http://127.0.0.1:8000" + myCode[i].innerHTML;
+             fullLink.value = "https://photoimages.herokuapp.com" + myCode[i].innerHTML;
              fullLink.select();
              document.execCommand("copy", false);
              fullLink.remove();
