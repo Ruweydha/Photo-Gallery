@@ -21,6 +21,22 @@
     {% block scripts %}
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script> 
+           let clicks = document.querySelectorAll('.copyBtn')
+
+         for(let i = 0; i < clicks.length; i++){
+             clicks[i].addEventListener('click', () =>{
+             let myCode = document.getElementsByClassName(`Input`);
+             let fullLink = document.createElement('input');
+             document.body.appendChild(fullLink);
+             fullLink.value = "http://127.0.0.1:8000" + myCode[i].innerHTML;
+             fullLink.select();
+             document.execCommand("copy", false);
+             fullLink.remove();
+             alert("Link copied");
+             console.log(myCode.length)
+
+    })
+}
           var myModal = document.getElementById('myModal')
           var myInput = document.getElementById('myInput')
 
