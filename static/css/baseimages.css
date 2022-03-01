@@ -20,5 +20,10 @@ body{
 .card-image{
    height: 300px;
    border-radius: 2rem; 
+   object-fit:cover;
+}
+.Input{
+    display: none;
+    color: red;
 }
 
