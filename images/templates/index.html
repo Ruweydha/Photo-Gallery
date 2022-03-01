@@ -11,18 +11,20 @@
        </div>
     </div>
 </div>
-<h1 class="text-center m-4">Images</h1>
-<div class="container images">
-    <div class="row">
+<h1 class="text-center m-4 ">Images</h1>
+<div class="container-fluid images">
+    <div class="row text-center">
         {% for image in images %}
-        <div class="col-md-4">
-                <div class="card mt-3" style="width: 20rem;">
+        <div class="col-md-3">
+                <div class="card mt-3 text-center" style="width:18rem;">
                     <img src="{{image.image.url}}" class="card-img-top card-image" alt="...">
                     <div class="card-body">
                       <h5 class="card-title">{{image.name}}</h5>
                       <button type="button" class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#modal{{image.id}}">
                         View image
                       </button>  
+                      <img src="https://img.icons8.com/material-outlined/50/000000/copy.png" style="width: 25px; float: right;" class="copyBtn">
+                      <p class="Input">{{image.image.url}}</p>
                                      
                     </div>
                   </div>  
@@ -37,19 +39,17 @@
                     <div class="modal-body">
                     <div class="container">
                         <div class="row">
-                            <div class="col-md-10">
-                                <img style="height: 400px ; width: 100%;" class="img-fluid" src="{{image.image.url}}" alt="">
+                            <div class="col-md-10 text-center">
+                                <img  class="img-fluid" src="{{image.image.url}}" alt="">
                                 <p>Location: {{image.location}}</p>
                                 <p>Category: {{image.category}}</p>
                                 <p>Description: {{image.description}}</p>
                                 <p>Posted on: {{image.date_posted}}</p>
-
-
                             </div>
                         </div>
                     </div>
                     </div>
-                    <div class="modal-footer">
+                    <div class="modal-footer float-none">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>        </div>
                 </div>
                 </div>
