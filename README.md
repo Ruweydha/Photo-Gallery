@@ -20,7 +20,7 @@ it on your own repository.
 
 
 * Create and activate the vitual Environment and install the from requirements.txt
-`$ python3.6 -m virtualenv virtual`
+`$ python3 -m venv virtual`
 `$ source virtual/bin/activate`
 `$ pip install -r requirements.txt`
 
